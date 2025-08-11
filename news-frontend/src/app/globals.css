@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf7ef;
+  --foreground: #1b1b1b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+:root {
+  --newspaper-ink: #1a1a1a;
+  --newspaper-bg: #f7f3e8;
+  --newspaper-accent: #b23a48;
+}
+
+@utility newspaper-heading {
+  font-family: var(--font-playfair);
+  letter-spacing: 0.5px;
+}
+
+@utility newspaper-serif {
+  font-family: var(--font-merriweather);
+}
+
+body {
+  background: var(--newspaper-bg);
+  color: var(--newspaper-ink);
+}
+
+@layer utilities {
+  .text-newspaper-ink { color: var(--newspaper-ink); }
+  .bg-newspaper-bg { background-color: var(--newspaper-bg); }
+  .accent-newspaper { color: var(--newspaper-accent); }
+  .border-newspaper { border-color: color-mix(in oklab, var(--newspaper-ink) 20%, transparent); }
+}
